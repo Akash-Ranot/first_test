@@ -1,8 +1,8 @@
 //jsint esversion:6
 const express = require('express')
-const https =require("https");
+
 const bodyParser = require("body-parser");
-const { send } = require('process');
+
 const app=express();
 app.use(bodyParser.urlencoded({extended:true}))
 
@@ -33,5 +33,7 @@ app.post('/', function(req, res){
       res.send(" your age ->" +n3+ " your bmi is ->"+n);
     //  res.sendFile(__dirname+"/index.html")
     })
-
+app.post("/failuer",function(req,res){
+  res.redirect("/");
+})
     app.listen(process.env.PORT || 3000);
